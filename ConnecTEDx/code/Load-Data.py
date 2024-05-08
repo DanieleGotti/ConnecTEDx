@@ -13,28 +13,23 @@ from awsglue.context import GlueContext
 from awsglue.job import Job
 
 
-
-
-##### FROM FILES
+### FROM FILES
 tedx_dataset_path = "s3://tedxdatagotti/final_list.csv"
 
-###### READ PARAMETERS
+### READ PARAMETERS
 args = getResolvedOptions(sys.argv, ['JOB_NAME'])
 
-##### START JOB CONTEXT AND JOB
+### START JOB CONTEXT AND JOB
 sc = SparkContext()
-
 
 glueContext = GlueContext(sc)
 spark = glueContext.spark_session
 
-
-   
 job = Job(glueContext)
 job.init(args['JOB_NAME'], args)
 
 
-#### READ INPUT FILES TO CREATE AN INPUT DATASET
+### READ INPUT FILES TO CREATE AN INPUT DATASET
 tedx_dataset = spark.read \
     .option("header","true") \
     .option("quote", "\"") \
@@ -43,13 +38,6 @@ tedx_dataset = spark.read \
    
 tedx_dataset.printSchema()
 
-
-#### FILTER ITEMS WITH NULL POSTING KEY
-count_items = tedx_dataset.count()
-count_items_null = tedx_dataset.filter("id is not null").count()
-
-print(f"Number of items from RAW DATA {count_items}")
-print(f"Number of items from RAW DATA with NOT NULL KEY {count_items_null}")
 
 ## READ THE DETAILS
 details_dataset_path = "s3://tedxdatagotti/details.csv"
@@ -84,6 +72,8 @@ tedx_dataset_main = tedx_dataset.join(details_dataset, tedx_dataset.id == detail
 tedx_dataset_main = tedx_dataset_main.join(images_dataset, tedx_dataset_main.id == images_dataset.id_ref, "left") \
     .drop("id_ref")
 
+
+
 # JOB ADD WATCH NEXT:
 ## LETTURA DEI DATI DALLA TABELLA "related_videos.csv" + JOIN AL DATASET MAIN DEI WATCH-NEXT
 
@@ -109,6 +99,8 @@ tedx_dataset_main = tedx_dataset_main.join(watch_next_dataset, tedx_dataset_main
 
 tedx_dataset_main.printSchema()
 
+
+
 ## READ TAGS DATASET
 tags_dataset_path = "s3://tedxdatagotti/tags.csv"
 tags_dataset = spark.read.option("header","true").csv(tags_dataset_path)
@@ -123,6 +115,7 @@ tedx_dataset_agg = tedx_dataset_main.join(tags_dataset_agg, tedx_dataset.id == t
     .drop("id") \
 
 tedx_dataset_agg.printSchema()
+
 
 
 write_mongo_options = {

@@ -1,4 +1,4 @@
-###### User_Job
+###### User_Video
 ######
 
 import sys
@@ -14,7 +14,7 @@ from awsglue.job import Job
 
 
 ### FROM FILES
-user_dataset_path = "s3://tedxdatagotti/user.csv"
+user_video_dataset_path = "s3://tedxdatagotti/user_video.csv"
 
 ### READ PARAMETERS
 args = getResolvedOptions(sys.argv, ['JOB_NAME'])
@@ -30,25 +30,23 @@ job.init(args['JOB_NAME'], args)
 
 
 ### READ INPUT FILES TO CREATE AN INPUT DATASET
-user_dataset = spark.read \
+user_video_dataset = spark.read \
     .option("header","true") \
     .option("quote", "\"") \
     .option("escape", "\"") \
-    .csv(user_dataset_path)
+    .csv(user_video_dataset_path)
 
-user_dataset = user_dataset.withColumn("_id", col("id")).drop("id")
-                                      
-user_dataset.printSchema()
+user_video_dataset.printSchema()
 
 
 
 write_mongo_options = {
     "connectionName": "TEDX2024",
     "database": "unibg_tedx_2024",
-    "collection": "user_data",
+    "collection": "user_video",
     "ssl": "true",
     "ssl.domain_match": "false"}
 from awsglue.dynamicframe import DynamicFrame
-user_dataset_dynamic_frame = DynamicFrame.fromDF(user_dataset, glueContext, "nested")
+user_video_dataset_dynamic_frame = DynamicFrame.fromDF(user_video_dataset, glueContext, "nested")
 
-glueContext.write_dynamic_frame.from_options(user_dataset_dynamic_frame, connection_type="mongodb", connection_options=write_mongo_options)
+glueContext.write_dynamic_frame.from_options(user_video_dataset_dynamic_frame, connection_type="mongodb", connection_options=write_mongo_options)
