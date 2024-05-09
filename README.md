@@ -1,5 +1,4 @@
 # Progetto Tecnologie Cloud e Mobile 23/24
-versione BETA 1.0.0
 ![logo](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/doc/img/logo/logo.png)
 
 # Siti utilizzati
