@@ -1,0 +1,71 @@
+connect_to_db = require('./db');
+const Person = require('./Person');
+const axios = require('axios');
+
+require('dotenv').config({ path: './variables.env' });
+
+module.exports.get_nearest_people = async (event, context, callback) => {
+    context.callbackWaitsForEmptyEventLoop = false;
+    console.log('Received event:', JSON.stringify(event, null, 2));
+
+    const { _id } = JSON.parse(event.body);
+
+    if (!_id) {
+        callback(null, {
+            statusCode: 500,
+            headers: { 'Content-Type': 'text/plain' },
+            body: 'ID is required.'
+        });
+        return;
+    }
+
+    try {
+        await connect_to_db();
+
+        // Fetch the person with the given _id
+        const person = await Person.findById(_id);
+
+        if (!person) {
+            callback(null, {
+                statusCode: 404,
+                headers: { 'Content-Type': 'text/plain' },
+                body: 'Person not found.'
+            });
+            return;
+        }
+
+        // Fetch all people
+        const allPeople = await Person.find({ _id: { $ne: _id } });
+
+        // Build coordinates for Mapbox API
+        const coordinates = allPeople.map(p => ${p.coordinateY},${p.coordinateX}).join(';');
+        const origin = ${person.coordinateY},${person.coordinateX};
+
+        const url = https://api.mapbox.com/directions-matrix/v1/mapbox/driving/${origin};${coordinates}?annotations=distance,duration&access_token=pk.eyJ1IjoiZmlsaXBwb2JvbGlzIiwiYSI6ImNseThnNmtmdTA5dnoybHF3N29wYWhyMncifQ.QgpsmrgwDmiiGhh4OfQk2A;
+
+        const response = await axios.get(url);
+
+        const distances = response.data.distances[0].slice(1);
+
+        // Add distances to the people objects
+        allPeople.forEach((p, index) => {
+            p.distance = distances[index];
+        });
+
+        // Sort people by distance
+        const nearestPeople = allPeople.sort((a, b) => a.distance - b.distance).slice(0, 10);
+
+        callback(null, {
+            statusCode: 200,
+            body: JSON.stringify(nearestPeople)
+        });
+
+    } catch (err) {
+        console.error('Error:', err);
+        callback(null, {
+            statusCode: 500,
+            headers: { 'Content-Type': 'text/plain' },
+            body: 'Could not fetch nearest people.'
+        });
+    }
+};
