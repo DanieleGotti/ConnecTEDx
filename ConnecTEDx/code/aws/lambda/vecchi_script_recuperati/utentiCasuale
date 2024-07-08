@@ -1,0 +1,84 @@
+db.js --> // CONNECTION TO DB
+
+const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+let isConnected;
+
+
+require('dotenv').config({ path: './variables.env' });
+
+module.exports = connect_to_db = () => {
+    if (isConnected) {
+        console.log('=> using existing database connection');
+        return Promise.resolve();
+    }
+ 
+    console.log('=> using new database connection');
+    return mongoose.connect(process.env.DB, {dbName: 'unibg_tedx_2024', useNewUrlParser: true, useUnifiedTopology: true}).then(db => {
+        isConnected = db.connections[0].readyState;
+    });
+}; handler.js --> const connect_to_db = require('./db');
+
+// GET BY TALK HANDLER
+
+const connect_to_db = require('./db');
+const talk = require('./Talk');
+
+module.exports.get_by_tag = (event, context, callback) => {
+    context.callbackWaitsForEmptyEventLoop = false;
+    console.log('Received event:', JSON.stringify(event, null, 2));
+    let body = {}
+    if (event.body) {
+        body = JSON.parse(event.body);
+    }
+
+    if (!body.doc_per_page) {
+        body.doc_per_page = 10;
+    }
+    if (!body.page) {
+        body.page = 1;
+    }
+
+    connect_to_db().then(() => {
+        console.log('=> get_all talks');
+
+        // Aggregazione per ottenere documenti casuali e proiettare solo i campi richiesti
+        talk.aggregate([
+            { $sample: { size: body.doc_per_page } }, // Prende un campione casuale di doc_per_page documenti
+            {
+                $project: {
+                    _id: 1,
+                    name: 1,
+                    surname: 1,
+                    position: 1,
+                    url_user_img: 1
+                }
+            } // Proietta solo i campi richiesti
+        ])
+        .then(talks => {
+                callback(null, {
+                    statusCode: 200,
+                    body: JSON.stringify(talks)
+                });
+            }
+        )
+        .catch(err =>
+            callback(null, {
+                statusCode: err.statusCode || 500,
+                headers: { 'Content-Type': 'text/plain' },
+                body: 'Could not fetch the talks.'
+            })
+        );
+    });
+};
+e Talk.js --> const mongoose = require('mongoose');
+
+const talk_schema = new mongoose.Schema({
+    _id: String,
+    name: String,
+    surname: String,
+    position: String,
+    url_user_img: String
+}, { collection: 'user_data' });
+
+module.exports = mongoose.model('talk', talk_schema); in più ho una variabile di ambiente utile per il db: DB=mongodb+srv://danielegotti:dGiD21!69$@mycluster962.ijhfwwk.mongodb.net/.
