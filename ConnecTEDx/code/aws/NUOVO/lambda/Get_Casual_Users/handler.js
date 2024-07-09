@@ -1,4 +1,3 @@
-//handler
 const connect_to_db = require('./db');
 const user = require('./User');
 
@@ -20,9 +19,8 @@ module.exports.get_casual_users = (event, context, callback) => {
     connect_to_db().then(() => {
         console.log('=> get_all users');
 
-        // Aggregazione per ottenere documenti casuali e proiettare solo i campi richiesti
         user.aggregate([
-            { $sample: { size: body.doc_per_page } }, // Prende un campione casuale di doc_per_page documenti
+            { $sample: { size: body.doc_per_page } }, 
             {
                 $project: {
                     _id: 1,
@@ -31,7 +29,7 @@ module.exports.get_casual_users = (event, context, callback) => {
                     position: 1,
                     url_user_img: 1
                 }
-            } // Proietta solo i campi richiesti
+            } 
         ])
         .then(users => {
                 callback(null, {

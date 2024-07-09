@@ -1,7 +1,4 @@
 const connect_to_db = require('./db');
-
-// GET BY TALK HANDLER
-
 const talk = require('./Talk');
 
 module.exports.get_by_tag = (event, context, callback) => {
@@ -11,7 +8,7 @@ module.exports.get_by_tag = (event, context, callback) => {
     if (event.body) {
         body = JSON.parse(event.body)
     }
-    // set default
+
     if(!body.tag) {
         callback(null, {
                     statusCode: 500,

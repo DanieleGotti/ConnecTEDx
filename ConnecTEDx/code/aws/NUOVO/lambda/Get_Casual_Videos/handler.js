@@ -1,4 +1,3 @@
-//handler
 const connect_to_db = require('./db');
 const talk = require('./Talk');
 
@@ -20,9 +19,8 @@ module.exports.get_casual_videos = (event, context, callback) => {
     connect_to_db().then(() => {
         console.log('=> get_all videos');
 
-        // Aggregazione per ottenere documenti casuali e proiettare solo i campi richiesti
-        talk.aggregate([
-            { $sample: { size: body.doc_per_page } }, // Prende un campione casuale di doc_per_page documenti
+         talk.aggregate([
+            { $sample: { size: body.doc_per_page } }, 
             {
                 $project: {
                     title: 1,
@@ -30,7 +28,7 @@ module.exports.get_casual_videos = (event, context, callback) => {
                     speakers: 1,
                     url_image: 1
                 }
-            } // Proietta solo i campi richiesti
+            } 
         ])
         .then(talks => {
                 callback(null, {
