@@ -1,0 +1,3 @@
+CONNECTEDX_Connection
+
+mongodb+srv://mycluster962.ijhfwwk.mongodb.net/connectedx_database

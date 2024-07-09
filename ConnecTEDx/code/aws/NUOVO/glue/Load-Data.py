@@ -1,4 +1,4 @@
-###### TEDx-Load-Aggregate-Model
+###### Load-Data
 ######
 
 import sys
@@ -11,48 +11,37 @@ from awsglue.utils import getResolvedOptions
 from pyspark.context import SparkContext
 from awsglue.context import GlueContext
 from awsglue.job import Job
+from pyspark.sql.functions import struct, to_json
 
 
+### FROM FILES
+tedx_dataset_path = "s3://prog-connectedx-data/final_list.csv"
 
-
-##### FROM FILES
-tedx_dataset_path = "s3://tedxdatagotti/final_list.csv"
-
-###### READ PARAMETERS
+### READ PARAMETERS
 args = getResolvedOptions(sys.argv, ['JOB_NAME'])
 
-##### START JOB CONTEXT AND JOB
+### START JOB CONTEXT AND JOB
 sc = SparkContext()
-
 
 glueContext = GlueContext(sc)
 spark = glueContext.spark_session
 
-
-    
 job = Job(glueContext)
 job.init(args['JOB_NAME'], args)
 
 
-#### READ INPUT FILES TO CREATE AN INPUT DATASET
+### READ INPUT FILES TO CREATE AN INPUT DATASET
 tedx_dataset = spark.read \
     .option("header","true") \
     .option("quote", "\"") \
     .option("escape", "\"") \
     .csv(tedx_dataset_path)
-    
+   
 tedx_dataset.printSchema()
 
 
-#### FILTER ITEMS WITH NULL POSTING KEY
-count_items = tedx_dataset.count()
-count_items_null = tedx_dataset.filter("id is not null").count()
-
-print(f"Number of items from RAW DATA {count_items}")
-print(f"Number of items from RAW DATA with NOT NULL KEY {count_items_null}")
-
 ## READ THE DETAILS
-details_dataset_path = "s3://tedxdatagotti/details.csv"
+details_dataset_path = "s3://prog-connectedx-data/details.csv"
 details_dataset = spark.read \
     .option("header","true") \
     .option("quote", "\"") \
@@ -63,10 +52,10 @@ details_dataset = details_dataset.select(col("id").alias("id_ref"),
                                          col("description"),
                                          col("duration"),
                                          col("publishedAt"))
-
-##COMPITO IMMAGINI (Parte 1)
-## READ THE IMAGES 
-images_dataset_path = "s3://tedxdatagotti/images.csv"
+                                         
+                                         
+## READ THE IMAGES (VERSIONE NUOVA)
+images_dataset_path = "s3://prog-connectedx-data/images.csv"
 images_dataset = spark.read \
     .option("header","true") \
     .option("quote", "\"") \
@@ -75,22 +64,51 @@ images_dataset = spark.read \
 
 images_dataset = images_dataset.select(col("id").alias("id_ref"),
                                          col("url").alias("url_image"))
-##fine parte 1 
 
 # AND JOIN WITH THE MAIN TABLE
 tedx_dataset_main = tedx_dataset.join(details_dataset, tedx_dataset.id == details_dataset.id_ref, "left") \
     .drop("id_ref")
-
-#COMPITO IMMAGINI JOIN (Parte 2)
-# AND JOIN WITH THE MAIN TABLE V2
+   
+#VERSIONE NUOVA DEL JOIN
 tedx_dataset_main = tedx_dataset_main.join(images_dataset, tedx_dataset_main.id == images_dataset.id_ref, "left") \
     .drop("id_ref")
-#fine parte 2
+
+
+
+# JOB ADD WATCH NEXT:
+## LETTURA DEI DATI DALLA TABELLA "related_videos.csv" + JOIN AL DATASET MAIN DEI WATCH-NEXT
+
+#   1. Collego l'URI S3 dei dati che si trovano nel bucket
+watch_next_dataset_path = "s3://prog-connectedx-data/related_videos.csv"
+
+#   2. Leggo i dati dal csv usando option per gestire la lettura su diverse righe
+watch_next_dataset = spark.read \
+    .option("header","true") \
+    .option("quote", "\"") \
+    .option("escape", "\"") \
+    .csv(watch_next_dataset_path)      
+
+# 3. Seleziona le colonne utili all'app dalla tabella dei video collegati
+
+watch_next_dataset = watch_next_dataset.groupBy(col("id").alias("id_ref")).agg(
+    collect_list(struct(
+        col("related_id").alias("id"),
+        col("title").alias("title"),
+        col("presenterDisplayName").alias("presenter")
+    )).alias("related_videos")
+)
+
+# 4. Svolge il join tra il dataset principale e il nuovo watch_next_dataset
+
+tedx_dataset_main = tedx_dataset_main.join(watch_next_dataset, tedx_dataset_main.id == watch_next_dataset.id_ref, "left") \
+    .drop("id_ref")
 
 tedx_dataset_main.printSchema()
 
+
+
 ## READ TAGS DATASET
-tags_dataset_path = "s3://tedxdatagotti/tags.csv"
+tags_dataset_path = "s3://prog-connectedx-data/tags.csv"
 tags_dataset = spark.read.option("header","true").csv(tags_dataset_path)
 
 
@@ -105,9 +123,10 @@ tedx_dataset_agg = tedx_dataset_main.join(tags_dataset_agg, tedx_dataset.id == t
 tedx_dataset_agg.printSchema()
 
 
+
 write_mongo_options = {
-    "connectionName": "TEDX2024",
-    "database": "unibg_tedx_2024",
+    "connectionName": "CONNECTEDX_Connection",
+    "database": "connectedx_database",
     "collection": "tedx_data",
     "ssl": "true",
     "ssl.domain_match": "false"}
@@ -115,6 +134,3 @@ from awsglue.dynamicframe import DynamicFrame
 tedx_dataset_dynamic_frame = DynamicFrame.fromDF(tedx_dataset_agg, glueContext, "nested")
 
 glueContext.write_dynamic_frame.from_options(tedx_dataset_dynamic_frame, connection_type="mongodb", connection_options=write_mongo_options)
-
-
-

@@ -31,4 +31,16 @@ Resources:
     Type: 'AWS::S3::Bucket'
     DeletionPolicy: Retain
     Properties:
-      BucketName: "tedx-data"
+      BucketName: "prog-connectedx-data"
+
+  ScriptS3Bucket:
+    Type: 'AWS::S3::Bucket'
+    DeletionPolicy: Retain
+    Properties:
+      BucketName: "prog-connectedx-script"
+
+  LogsS3Bucket:
+    Type: 'AWS::S3::Bucket'
+    DeletionPolicy: Retain
+    Properties:
+      BucketName: "prog-connectedx-logs"
