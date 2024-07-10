@@ -12,22 +12,22 @@ from awsglue.context import GlueContext
 from awsglue.job import Job
 from awsglue.dynamicframe import DynamicFrame
 
-### FROM FILES
+### DAI FILE
 user_dataset_path = "s3://prog-connectedx-data/user.csv"
 user_video_dataset_path = "s3://prog-connectedx-data/user_video.csv"
 tags_dataset_path = "s3://prog-connectedx-data/tags.csv"
 
-### READ PARAMETERS
+### LEGGO I PARAMETRI
 args = getResolvedOptions(sys.argv, ['JOB_NAME'])
 
-### START JOB CONTEXT AND JOB
+### INIZIALIZZO IL JOB
 sc = SparkContext()
 glueContext = GlueContext(sc)
 spark = glueContext.spark_session
 job = Job(glueContext)
 job.init(args['JOB_NAME'], args)
 
-### READ INPUT FILES TO CREATE DATASETS
+### LEGGO I DATI
 user_dataset = spark.read \
     .option("header", "true") \
     .option("quote", "\"") \
@@ -44,39 +44,39 @@ tags_dataset = spark.read \
     .option("header", "true") \
     .csv(tags_dataset_path)
 
-### PROCESS USER DATASET
+### PROCESSO I DATI
 user_dataset = user_dataset.withColumn("_id", col("id")).drop("id")
 
-### AGGREGATE VIDEO DATA
+### AGGREGO I DATI VIDEO
 user_video_agg = user_video_dataset.groupBy(col("id_user")).agg(
     collect_list(col("id_video")).alias("video_visti")
 )
 
 user_video_agg = user_video_agg.select(col("id_user").alias("_id"), "video_visti")
 
-### EXPLODE VIDEO_VISTI TO JOIN WITH TAGS
+### "ESPLODO" VIDEO_VISTI PER FARE IL JOIN CON I TAG
 user_video_exploded = user_video_agg.withColumn("id_video", explode(col("video_visti")))
 
-### JOIN TAGS DATASET WITH EXPLODED VIDEO DATA
+### JOIN TRA TAGS DATASET CON VIDEO DATA "ESPLOSI"
 tags_with_user = tags_dataset.join(user_video_exploded, tags_dataset.id == user_video_exploded.id_video, "inner")
 
-### COUNT TAGS PER USER
+### FACCIO LA CONTA DEI TAGS PER USER
 tags_count_per_user = tags_with_user.groupBy(user_video_exploded["_id"], tags_dataset["tag"]).agg(
     count("*").alias("tag_count")
 )
 
-### RE-AGGREGATE TO GET THE TAGS AND THEIR COUNTS AS A LIST FOR EACH USER
+### RI-AGGREGO IL TUTTO PER PRENDERE I TAGS E LA LORO CONTA
 tags_aggregated = tags_count_per_user.groupBy(col("_id")).agg(
     collect_list(struct(col("tag"), col("tag_count").alias("tag_count"))).alias("tags_viewed")
 )
 
-### JOIN USER DATA WITH VIDEO DATA
+### JOIN USER DATA CON VIDEO DATA
 user_data_full = user_dataset.join(user_video_agg, "_id", "left")
 
-### JOIN WITH AGGREGATED TAGS DATASET
+### JOIN CON AGGREGATED TAGS DATASET
 user_data_full = user_data_full.join(tags_aggregated, "_id", "left")
 
-### CONVERT TO DYNAMIC FRAME AND WRITE TO MONGODB
+### CONVERTO A DYNAMIC FRAME E SCRIVO
 write_mongo_options = {
     "connectionName": "CONNECTEDX_Connection",
     "database": "connectedx_database",
