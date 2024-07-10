@@ -1,5 +1,5 @@
 const connect_to_db = require('./db');
-const Event = require('./Event'); // Import the correct Event model
+const Event = require('./Event'); 
 
 module.exports.get_casual_events = (event, context, callback) => {
     context.callbackWaitsForEmptyEventLoop = false;
@@ -25,7 +25,7 @@ module.exports.get_casual_events = (event, context, callback) => {
                 $project: {
                     name: 1,
                     event_url: 1,
-                    image_url: 1,
+                    img_url: 1,
                     start_date: 1,
                     city: 1,
                     price: 1
