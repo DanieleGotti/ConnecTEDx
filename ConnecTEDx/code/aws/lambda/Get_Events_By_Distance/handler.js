@@ -66,7 +66,7 @@ module.exports.get_nearest_events = async (event, context, callback) => {
             city : event.city,
             price : event.price,
             event_url : event.event_url,
-            distance: `${Math.round(haversine(person.coordinateY, person.coordinateX, event.latitude, event.longitude) / 100)} m`
+            distance: `${Math.round(haversine(person.coordinateX, person.coordinateY, event.latitude, event.longitude) )} m`
         }));
         nearestEvents.sort((a, b) => {
             const distA = parseInt(a.distance);

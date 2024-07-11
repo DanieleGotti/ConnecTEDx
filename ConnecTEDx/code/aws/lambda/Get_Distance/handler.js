@@ -59,7 +59,7 @@ module.exports.get_nearest_people = async (event, context, callback) => {
 
         const nearestPeople = allPeople.map(p => ({
             id: p._id,
-            distance: `${Math.round(haversine(person.coordinateY, person.coordinateX, p.coordinateY, p.coordinateX) / 1000)} Km` // Convert to kilometers and round to nearest integer, then format as "x Km"
+            distance: `${Math.round(haversine(person.coordinateX, person.coordinateY, p.coordinateX, p.coordinateY) / 1000)} Km` // Convert to kilometers and round to nearest integer, then format as "x Km"
         }));
 
         nearestPeople.sort((a, b) => {
