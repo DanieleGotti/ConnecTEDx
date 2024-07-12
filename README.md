@@ -9,47 +9,11 @@
 
 ## Importazione del progetto flutter
 
-## Screenshots
-
-<table>
-  <tr>
-    <td align="center">
-      <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_01.png" style="display:block; margin:auto; width:200px;">
-      Eventi
-    </td>
-    <td align="center">
-      <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_02.png" style="display:block; margin:auto; width:200px;">
-      Eventi (vicini a me)
-    </td>
-    <td align="center">
-      <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_03.png" style="display:block; margin:auto; width:200px;">
-      Video
-    </td>
-    <td align="center">
-      <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_04.png" style="display:block; margin:auto; width:200px;">
-      Video (per tag più visto)
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_05.png" style="display:block; margin:auto; width:200px;">
-      Persone
-    </td>
-    <td align="center">
-      <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_06.png" style="display:block; margin:auto; width:200px;">
-      Persone (vicini a me)
-    </td>
-    <td align="center">
-      <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_07.png" style="display:block; margin:auto; width:200px;">
-      Chat
-    </td>
-    <td align="center">
-      <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_08.png" style="display:block; margin:auto; width:200px;">
-      Profilo
-    </td>
-  </tr>
-</table>
-
+| Eventi | Eventi (vicini a me) | Video | Video (per tag più visto) |
+|--------|----------------------|-------|--------------------------|
+| ![Evento](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_01.png){width=200} | ![Eventi vicini a me](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_02.png){width=200} | ![Video](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_03.png){width=200} | ![Video per tag più visto](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_04.png){width=200} |
+| Persone | Persone (vicini a me) | Chat | Profilo |
+| ![Persone](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_05.png){width=200} | ![Persone vicini a me](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_06.png){width=200} | ![Chat](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_07.png){width=200} | ![Profilo](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_08.png){width=200} |
 
 
 ## Altro
