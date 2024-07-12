@@ -15,7 +15,6 @@
 | Persone | Persone (vicini a me) | Chat | Profilo |
 | ![Persone](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_05.png)flutter_05.png | ![Persone vicini a me](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_06.png)flutter_06.png | ![Chat](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_07.png)flutter_07.png | ![Profilo](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_08.png)flutter_08.png |
 
-
 ## Altro
 - Kanban board: [__Trello__](https://trello.com/b/WBCqqAyc/connectedx)
 - Design iniziale UI: [__Figma__](https://www.figma.com/file/DXUDugR8lhHtBvBZ2NX0oj/ConnecTEDx?type=design&node-id=0%3A1&mode=design&t=8OvN5yfO4kw7GyV1-1) 
