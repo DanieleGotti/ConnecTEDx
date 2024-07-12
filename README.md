@@ -11,11 +11,15 @@
 
 ## Screenshots
 | Eventi | Eventi (vicini a me) | Video  | Video (per tag più visto) |
-|--------------|--------------|--------------|--------------|
-| ![](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_01.png) | ![](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_02.png) | ![](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_03.png) | ![](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_04.png) |
+| ![](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_01.png) 
+| ![](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_02.png) 
+| ![](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_03.png) 
+| ![](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_04.png) 
 | Persone | Persone (vicini a me) | Chat | Profilo |
-|--------------|--------------|--------------|--------------|
-| ![](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_05.png)) | ![](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_06.png)) | ![](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_07.png)) | ![](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_08.png)) |
+| ![](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_05.png) 
+| ![](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_06.png) 
+| ![](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_07.png) 
+| ![](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_08.png) |
 
 
 ## Altro
