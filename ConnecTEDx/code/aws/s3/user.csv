@@ -1,4 +1,5 @@
 id,name,surname,position,coordinateX,coordinateY,email,password,url_user_img
+t,Tester,Testautente,Bergamo (BG),45.694684,9.669488,tester.connectedx@gmail.com,0000,https://static.vecteezy.com/system/resources/previews/035/537/342/non_2x/3d-chat-bot-artificial-intelligence-with-neon-eyes-ai-technology-concept-technology-and-engineering-customer-support-service-chat-bot-digital-brain-neural-network-illustration-vector.jpg
 0,Filippo,Bolis,Dalmine (BG),45.648762,9.597573,f.bolis2@studenti.unibg.it,1234,https://static.thenounproject.com/png/1594252-200.png
-1,Daniele,Gotti,Almenno S.B. (BG),45.750516,9.595240,d.gotti5@studenti.unibg.it,5678,https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/default-profile-picture-male-icon.png
-2,Gabriele,Mazzoleni,Mariano (BG),45.640513,9.580923,mazzoleni@gmail.com,9101,https://static-00.iconduck.com/assets.00/profile-major-icon-512x512-xosjbbdq.png
+1,Daniele,Gotti,Almenno S.B. (BG),45.750516,9.595240,d.gotti5@studenti.unibg.it,5678,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsCW6XKqWhSrXyj6bNyP-sAJdkBgQxCxrvUg&usqp=CAU
+2,Gabriele,Mazzoleni,Mariano (BG),45.640513,9.580923,g.mazzoleni@gmail.com,9101,https://www.like-home.it/wp-content/uploads/2019/06/Sunrise_at_Bergamo_old_town_Lombardy_Italy.jpg
