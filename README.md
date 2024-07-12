@@ -2,15 +2,20 @@
 ![logo](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/doc/img/logo.png)
 
 ## Procedura per l'installazione (dispositivi Android)
-- Scaricare il file [ConnecTEDx_Installer.apk](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/ConnecTEDx_Installer.apk) sul proprio dispositivo mobile
-- Raggiugere la cartella di download e selezionare il file
-- Appariranno dei messaggi; segui questa sequenza: Apri > Installa > Altri dettagli (se necessario) > Installa senza analizzare (se richiesto) > Apri
+- Scaricare il file [ConnecTEDx_Installer.apk](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/ConnecTEDx_Installer.apk) sul proprio dispositivo mobile (assicurarsi di aprire questo git dal browser, non dall'app)
+- Attendere l'installazione e selezionare il file  
+- Appariranno dei messaggi, seguire questa sequenza: Apri > Installa > Altri dettagli (se necessario) > Installa senza analizzare (se richiesto) > Apri. Se richiesto nella sequenza attivare "Sorgenti sconosciute" 
 - Attendere che l'app venga installata e aperta correttamente
 
 ## Struttura del progetto
+Il progetto è suddiviso in due cartelle principali:
+- [code](https://github.com/DanieleGotti/ConnecTEDx/tree/main/ConnecTEDx/code), contenente i codici aws e l'app flutter
+- [doc](https://github.com/DanieleGotti/ConnecTEDx/tree/main/ConnecTEDx/doc/presentation), dove è possibile trovare gli homework .pdf e .pptx all'interno della sottocartella presentation
 
 ## Compatibilità 
+L'applicazione è stata sviluppata e testata con Android, quindi si consiglia vivamente di utilizzare questo tipo di dispositivo. L'app non è stata testata su iOS.
 
+Se si desidera importare il progetto Flutter, è fondamentale utilizzare dispositivi o emulatori Android indicati sopra; in caso contrario, le API potrebbero non funzionare correttamente.
 
 ## Screenshots
 | Eventi | Eventi (vicini a me) | Video | Video (per tag più visto) |
