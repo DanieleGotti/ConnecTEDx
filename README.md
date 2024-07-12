@@ -12,10 +12,11 @@
 ## Screenshots
 
 | Eventi | Eventi (vicini a me) | Video | Video (per tag più visto) |
-|--------|----------------------|-------|---------------------------|
-| ![Screenshot 1](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_01.png) | ![Screenshot 2](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_02.png) | ![Screenshot 3](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_03.png) | ![Screenshot 4](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_04.png) |
+|--------|----------------------|-------|--------------------------|
+| <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_01.png" width="200"> | <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_02.png" width="200"> | <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_03.png" width="200"> | <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_04.png" width="200"> |
 | Persone | Persone (vicini a me) | Chat | Profilo |
-| ![Screenshot 5](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_05.png) | ![Screenshot 6](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_06.png) | ![Screenshot 7](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_07.png) | ![Screenshot 8](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_08.png) |
+| <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_05.png" width="200"> | <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_06.png" width="200"> | <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_07.png" width="200"> | <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_08.png" width="200"> |
+
 
 
 ## Altro
