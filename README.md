@@ -11,11 +11,45 @@
 
 ## Screenshots
 
-| Eventi | Eventi (vicini a me) | Video | Video (per tag più visto) |
-|--------|--------|--------|--------|
-| ![Screenshot 1](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_01.png) | ![Screenshot 2](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_02.png) | ![Screenshot 3](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_03.png) | ![Screenshot 4](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_04.png) |
-| Persone | Persone (vicini a me) | Chat | Profilo |
-| ![Screenshot 5](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_05.png) | ![Screenshot 6](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_06.png) | ![Screenshot 7](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_07.png) | ![Screenshot 8](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_08.png) |
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_01.png" style="display:block; margin:auto; width:200px;">
+      Eventi
+    </td>
+    <td align="center">
+      <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_02.png" style="display:block; margin:auto; width:200px;">
+      Eventi (vicini a me)
+    </td>
+    <td align="center">
+      <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_03.png" style="display:block; margin:auto; width:200px;">
+      Video
+    </td>
+    <td align="center">
+      <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_04.png" style="display:block; margin:auto; width:200px;">
+      Video (per tag più visto)
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_05.png" style="display:block; margin:auto; width:200px;">
+      Persone
+    </td>
+    <td align="center">
+      <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_06.png" style="display:block; margin:auto; width:200px;">
+      Persone (vicini a me)
+    </td>
+    <td align="center">
+      <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_07.png" style="display:block; margin:auto; width:200px;">
+      Chat
+    </td>
+    <td align="center">
+      <img src="https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_08.png" style="display:block; margin:auto; width:200px;">
+      Profilo
+    </td>
+  </tr>
+</table>
+
 
 
 ## Altro
