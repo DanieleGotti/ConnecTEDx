@@ -1,5 +1,5 @@
 # Progetto Tecnologie Cloud e Mobile 23/24
-![logo](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/doc/img/logo/logo.png)
+![logo](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/doc/img/logo.png)
 
 ## Procedura per l'installazione (dispositivi Android)
 - Scaricare il file [ConnecTEDx_Installer.apk](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/ConnecTEDx_Installer.apk) sul proprio dispositivo mobile
@@ -7,8 +7,12 @@
 - Appariranno dei messaggi; segui questa sequenza: Apri > Installa > Altri dettagli (se necessario) > Installa senza analizzare (se richiesto) > Apri
 - Attendere che l'app venga installata e aperta correttamente
 
-## Importazione del progetto flutter
+## Struttura del progetto
 
+## Compatibilità 
+
+
+## Screenshots
 | Eventi | Eventi (vicini a me) | Video | Video (per tag più visto) |
 |--------|----------------------|-------|--------------------------|
 | ![Evento](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_01.png)flutter_01.png | ![Eventi vicini a me](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_02.png)flutter_02.png | ![Video](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_03.png)flutter_03.png | ![Video per tag più visto](https://github.com/DanieleGotti/ConnecTEDx/blob/main/ConnecTEDx/code/flutter/connectedx/flutter_04.png)flutter_04.png |
